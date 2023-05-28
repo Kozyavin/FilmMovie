@@ -32,7 +32,7 @@ public class FilmManager {
         }
         String[] last = new String[resultLength];
         for (int i = 0; i < last.length; i++) {
-            last[i] = items[last.length - 1 - i];  //запись по мере заполнеия массива в обратном относительно пополнения порядке
+            last[i] = items[items.length - 1 - i];  //запись по мере заполнеия массива в обратном относительно пополнения порядке
         }
         return last;
     }

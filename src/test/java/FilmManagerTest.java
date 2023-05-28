@@ -53,6 +53,7 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void MinLimitNullConstructorTest() {       //тест метода findLast с конструктором (пустым). Кол-во фильмов < чем в конструкторе.
         FilmManager manager = new FilmManager();
@@ -68,6 +69,7 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void OnBoundaryLimitNullConstructorTest() {    //тест метода findLast с конструктором (пустым). Кол-во фильмов = кол-во фильмов в конструкторе
         FilmManager manager = new FilmManager();
@@ -84,6 +86,7 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void MinFilmsNullConstructorTest() {    //тест метода findLast с конструктором (пустым). Кол-во фильмов = 1
         FilmManager manager = new FilmManager();
@@ -95,7 +98,8 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
-//////////////////////////////////////////тестирование метода findLast с конструктором, где задаём лимит///////////////////////
+
+    //////////////////////////////////////////тестирование метода findLast с конструктором, где задаём лимит///////////////////////
     @Test
     public void MoreLimitFindLastTest() {          //тест метода findLast с конструктором и параметром limit=4, а фильмов 5
         FilmManager manager = new FilmManager(4);
@@ -107,7 +111,7 @@ public class FilmManagerTest {
         manager.addFilm("Человек-неведимка");
 
 
-        String[] expected = {"Джентльмены", "Отель Белград", "Вперёд", "Бладшот"};
+        String[] expected = {"Человек-неведимка", "Джентльмены", "Отель Белград", "Вперёд"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -155,13 +159,26 @@ public class FilmManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void NullLimitFindLastTest() {         //тест метода findLast с конструктором и параметром limit=0, фильмов 1
         FilmManager manager = new FilmManager(0);
 
         manager.addFilm("Бладшот");
 
-        String[] expected = new String[0];
+        String[] expected = {};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void Test() {         //тест метода findLast с конструктором и параметром limit=0, фильмов 1
+        FilmManager manager = new FilmManager(0);
+
+        manager.addFilm("Бладшот");
+
+        String[] expected = {};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
